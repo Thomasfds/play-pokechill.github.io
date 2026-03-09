@@ -233,6 +233,20 @@ document.getElementById("settings-theme").addEventListener("change", e => {
   changeTheme()
 });
 
+//-- Language settings
+saved.locale = "en"
+
+document.getElementById("settings-language").addEventListener("change", e => {
+  const newLocale = e.target.value;
+  if (typeof i18n !== 'undefined' && i18n.setLocale(newLocale)) {
+    i18n.updateDOM();
+    // Refresh dynamic elements that may need translation
+    if (typeof updatePokedex === 'function') updatePokedex();
+    if (typeof updateDictionary === 'function') updateDictionary();
+    if (typeof setWildPkmn === 'function' && saved.currentArea) setWildPkmn();
+  }
+});
+
 saved.hideGotPkmn = "false"
 document.getElementById("settings-hide-got").addEventListener("change", e => {
   saved.hideGotPkmn = document.getElementById(`settings-hide-got`).value
@@ -904,6 +918,7 @@ function updateSettings(alt){
 
 
   document.getElementById("settings-theme").value = saved.theme
+  document.getElementById("settings-language").value = saved.locale || "en"
 
   if (saved.hideGotPkmn == "true") {document.getElementById("settings-hide-got").value = "true"} else document.getElementById("settings-hide-got").value = "false"
   if (saved.alternateWildRotation == "true") {document.getElementById("settings-alternate-rotation").value = "true"} else document.getElementById("settings-alternate-rotation").value = "false"

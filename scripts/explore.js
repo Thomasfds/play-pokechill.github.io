@@ -71,6 +71,27 @@ function voidAnimation(divName, animationName) {
 
 function format(input) {
     let str = String(input);
+    
+    // Check for i18n translation first (if i18n system is loaded)
+    if (typeof i18n !== 'undefined') {
+        // Try to get translation based on input type
+        let translationKey = null;
+        if (pkmn[input]) translationKey = `pkmn.${input}`;
+        else if (move[input]) translationKey = `move.${input}`;
+        else if (ability[input]) translationKey = `ability.${input}`;
+        else if (item[input]) translationKey = `item.${input}`;
+        else if (field[input]) translationKey = `field.${input}`;
+        
+        if (translationKey) {
+            const translated = i18n.t(translationKey);
+            // If we got an actual translation (not the key back), use it
+            if (translated !== translationKey) {
+                return translated;
+            }
+        }
+    }
+    
+    // Fallback to rename properties (retrocompatibility)
     if (move[input]?.rename) str = String(move[input].rename);
     if (pkmn[input]?.rename) str = String(pkmn[input].rename);
     if (ability[input]?.rename) str = String(ability[input].rename);

@@ -128,11 +128,11 @@
 
         <div style="margin-right:0.5rem; justify-content: start; width:10rem;  padding-right:0rem" class="team-header-button" id="pkmn-team-return" onclick="exitPkmnTeam()">
         <svg style="margin-right: 1rem;  background:#E46B6F;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M10.928 21a2.98 2.98 0 0 1-2.121-.879L1.686 13l7.121-7.121c1.133-1.134 3.109-1.134 4.242 0c.566.564.879 1.317.879 2.119c0 .746-.27 1.451-.764 2.002H18c1.654 0 3 1.346 3 3s-1.346 3-3 3h-4.836c.493.549.764 1.252.764 1.998a2.98 2.98 0 0 1-.879 2.124a2.98 2.98 0 0 1-2.121.878m-6.414-8l5.707 5.707a1.023 1.023 0 0 0 1.414 0c.189-.189.293-.441.293-.708s-.104-.517-.291-.705L8.342 14H18a1.001 1.001 0 0 0 0-2H8.342l3.293-3.293a.996.996 0 0 0 .001-1.413a1.023 1.023 0 0 0-1.415-.001z"/></svg>
-        Go back
+        <span data-i18n="ui.goBack">Go back</span>
         </div>
 
         <div id="preview-team-exit"  onclick="afkSeconds = 0 ;injectPreviewTeam(); saveGame()" style="margin-left:auto; justify-content: end; padding-left: 0rem;" class="team-header-button" onclick="exitPkmnTeam()">
-        Save and Go!
+        <span data-i18n="ui.saveAndGo">Save and Go!</span>
         <svg  style="margin-left: 1rem;     border: 1px solid rgb(151, 252, 255);" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21c-.801 0-1.555-.312-2.121-.879S8.999 18.8 9 17.998c0-.746.271-.998.764-1.998H4.928c-1.654 0-3-1.347-3-3s1.346-3 3-3h4.836C9.27 9 9 8.745 9 7.999a2.98 2.98 0 0 1 .88-2.121c1.132-1.132 3.108-1.133 4.241.001L21.242 13l-7.121 7.121A2.98 2.98 0 0 1 12 21m-7.072-9a1.001 1.001 0 0 0 0 2h9.658l-3.293 3.293a1 1 0 0 0-.293.706c0 .269.104.519.293.708a1.023 1.023 0 0 0 1.414 0L18.414 13l-5.707-5.707a1.023 1.023 0 0 0-1.414 0a1 1 0 0 0-.293.706c0 .268.104.519.293.708L14.586 12z"/></svg>
         </div>
 
@@ -240,10 +240,10 @@
         <div id="dictionary-header">
 
         <div id="dictionary-filters">
-            <div onclick='dictionaryFilter="pokemon"; document.getElementById("dictionary-search").value=""; searchedDictionary = [] ;  updateDictionary() '>Pokemon</div>
-            <div onclick='dictionaryFilter="ability"; document.getElementById("dictionary-search").value=""; searchedDictionary = [] ;  updateDictionary() '>Abilities</div>
-            <div onclick='dictionaryFilter="move"; document.getElementById("dictionary-search").value=""; searchedDictionary = [] ;  updateDictionary() '>Moves</div>
-            <div onclick='dictionaryFilter="item"; document.getElementById("dictionary-search").value=""; searchedDictionary = [] ;  updateDictionary() '>Items</div>
+            <div onclick='dictionaryFilter="pokemon"; document.getElementById("dictionary-search").value=""; searchedDictionary = [] ;  updateDictionary() ' data-i18n="dictionary.pokemon">Pokemon</div>
+            <div onclick='dictionaryFilter="ability"; document.getElementById("dictionary-search").value=""; searchedDictionary = [] ;  updateDictionary() ' data-i18n="dictionary.abilities">Abilities</div>
+            <div onclick='dictionaryFilter="move"; document.getElementById("dictionary-search").value=""; searchedDictionary = [] ;  updateDictionary() ' data-i18n="dictionary.moves">Moves</div>
+            <div onclick='dictionaryFilter="item"; document.getElementById("dictionary-search").value=""; searchedDictionary = [] ;  updateDictionary() ' data-i18n="dictionary.items">Items</div>
         </div>
 
         <div style="width: 100%;" data-help="searchDictionary"><input style="cursor: help;" id="dictionary-search" type="text" placeholder="Right Click/Long Press to see keywords"></div>
@@ -276,61 +276,61 @@
             <div class="pokedex-search" id="pokedex-filters-title" style="display: none; cursor: default; text-align: center; justify-content: center;">Select a pokemon to teach Hydro Pump</div>
             
             <div class="pokedex-cancel-menu">
-            <div id="pokedex-filters-cancel" onClick="exitTmTeaching('cancel')" style="display: none; background: rgb(255, 81, 81); color: white;">Cancel</div>
-            <div id="pokedex-filters-remove" onClick="exitTmTeaching('remove')" style="display: none; background: rgb(255, 81, 81); color: white;">Remove</div>
+            <div id="pokedex-filters-cancel" onClick="exitTmTeaching('cancel')" style="display: none; background: rgb(255, 81, 81); color: white;" data-i18n="ui.cancel">Cancel</div>
+            <div id="pokedex-filters-remove" onClick="exitTmTeaching('remove')" style="display: none; background: rgb(255, 81, 81); color: white;" data-i18n="ui.remove">Remove</div>
             </div>
 
             <div class="pokedex-filters-menu">
-            <div style="color: white; font-size: 1.2rem;">Filters</div>
+            <div style="color: white; font-size: 1.2rem;" data-i18n="ui.filters">Filters</div>
             <div class="separator-solid" style="width: 90%; height: 2px; opacity: 0.5; margin: 0;"></div>
             
             <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
             <select id="pokedex-filter-type">
-                <option value="all">type</option>
-                <option value="normal">normal</option>
-                <option value="fire">fire</option>
-                <option value="water">water</option>
-                <option value="electric">electric</option>
-                <option value="grass">grass</option>
-                <option value="ice">ice</option>
-                <option value="fighting">fighting</option>
-                <option value="poison">poison</option>
-                <option value="ground">ground</option>
-                <option value="flying">flying</option>
-                <option value="psychic">psychic</option>
-                <option value="bug">bug</option>
-                <option value="rock">rock</option>
-                <option value="ghost">ghost</option>
-                <option value="dragon">dragon</option>
-                <option value="dark">dark</option>
-                <option value="steel">steel</option>
-                <option value="fairy">fairy</option>
+                <option value="all" data-i18n="filter.type">type</option>
+                <option value="normal" data-i18n="type.normal">normal</option>
+                <option value="fire" data-i18n="type.fire">fire</option>
+                <option value="water" data-i18n="type.water">water</option>
+                <option value="electric" data-i18n="type.electric">electric</option>
+                <option value="grass" data-i18n="type.grass">grass</option>
+                <option value="ice" data-i18n="type.ice">ice</option>
+                <option value="fighting" data-i18n="type.fighting">fighting</option>
+                <option value="poison" data-i18n="type.poison">poison</option>
+                <option value="ground" data-i18n="type.ground">ground</option>
+                <option value="flying" data-i18n="type.flying">flying</option>
+                <option value="psychic" data-i18n="type.psychic">psychic</option>
+                <option value="bug" data-i18n="type.bug">bug</option>
+                <option value="rock" data-i18n="type.rock">rock</option>
+                <option value="ghost" data-i18n="type.ghost">ghost</option>
+                <option value="dragon" data-i18n="type.dragon">dragon</option>
+                <option value="dark" data-i18n="type.dark">dark</option>
+                <option value="steel" data-i18n="type.steel">steel</option>
+                <option value="fairy" data-i18n="type.fairy">fairy</option>
             </select>
 
             <select id="pokedex-filter-type-2">
-                <option value="all">type</option>
-                <option value="normal">normal</option>
-                <option value="fire">fire</option>
-                <option value="water">water</option>
-                <option value="electric">electric</option>
-                <option value="grass">grass</option>
-                <option value="ice">ice</option>
-                <option value="fighting">fighting</option>
-                <option value="poison">poison</option>
-                <option value="ground">ground</option>
-                <option value="flying">flying</option>
-                <option value="psychic">psychic</option>
-                <option value="bug">bug</option>
-                <option value="rock">rock</option>
-                <option value="ghost">ghost</option>
-                <option value="dragon">dragon</option>
-                <option value="dark">dark</option>
-                <option value="steel">steel</option>
-                <option value="fairy">fairy</option>
+                <option value="all" data-i18n="filter.type">type</option>
+                <option value="normal" data-i18n="type.normal">normal</option>
+                <option value="fire" data-i18n="type.fire">fire</option>
+                <option value="water" data-i18n="type.water">water</option>
+                <option value="electric" data-i18n="type.electric">electric</option>
+                <option value="grass" data-i18n="type.grass">grass</option>
+                <option value="ice" data-i18n="type.ice">ice</option>
+                <option value="fighting" data-i18n="type.fighting">fighting</option>
+                <option value="poison" data-i18n="type.poison">poison</option>
+                <option value="ground" data-i18n="type.ground">ground</option>
+                <option value="flying" data-i18n="type.flying">flying</option>
+                <option value="psychic" data-i18n="type.psychic">psychic</option>
+                <option value="bug" data-i18n="type.bug">bug</option>
+                <option value="rock" data-i18n="type.rock">rock</option>
+                <option value="ghost" data-i18n="type.ghost">ghost</option>
+                <option value="dragon" data-i18n="type.dragon">dragon</option>
+                <option value="dark" data-i18n="type.dark">dark</option>
+                <option value="steel" data-i18n="type.steel">steel</option>
+                <option value="fairy" data-i18n="type.fairy">fairy</option>
             </select>
 
             <select id="pokedex-filter-level">
-                <option value="all">level</option>
+                <option value="all" data-i18n="filter.level">level</option>
                 <option value="20">1-20</option>
                 <option value="40">20-40</option>
                 <option value="60">40-60</option>
@@ -339,7 +339,7 @@
             </select>
 
             <select id="pokedex-filter-division">
-                <option value="all">division</option>
+                <option value="all" data-i18n="filter.division">division</option>
                 <option value="D">D</option>
                 <option value="C">C</option>
                 <option value="B">B</option>
@@ -350,75 +350,75 @@
             </select>
 
             <select id="pokedex-filter-evolution">
-                <option value="all">evolution</option>
-                <option value="true">not evolved (all)</option>
-                <option value="level-only">not evolved (level)</option>
+                <option value="all" data-i18n="filter.evolution">evolution</option>
+                <option value="true" data-i18n="filter.notEvolved">not evolved (all)</option>
+                <option value="level-only" data-i18n="filter.notEvolvedLevel">not evolved (level)</option>
             </select>
 
             <select id="pokedex-filter-ability">
-                <option value="all">ability</option>
-                <option value=1>common</option>
-                <option value=2>uncommon</option>
-                <option value=3>rare</option>
-                <option value=4>locked HA</option>
+                <option value="all" data-i18n="filter.ability">ability</option>
+                <option value=1 data-i18n="rarity.common">common</option>
+                <option value=2 data-i18n="rarity.uncommon">uncommon</option>
+                <option value=3 data-i18n="rarity.rare">rare</option>
+                <option value=4 data-i18n="rarity.lockedHA">locked HA</option>
             </select>
 
             <select id="pokedex-filter-shiny">
-                <option value="all">shiny</option>
-                <option value=true>is shiny</option>
-                <option value=undefined>not shiny</option>
+                <option value="all" data-i18n="filter.shiny">shiny</option>
+                <option value=true data-i18n="filter.isShiny">is shiny</option>
+                <option value=undefined data-i18n="filter.notShiny">not shiny</option>
             </select>
 
             <select id="pokedex-filter-signature">
-                <option value="all">signature</option>
-                <option value=false>has signature</option>
-                <option value="egg">has egg move</option>
+                <option value="all" data-i18n="filter.signature">signature</option>
+                <option value=false data-i18n="filter.hasSignature">has signature</option>
+                <option value="egg" data-i18n="filter.hasEggMove">has egg move</option>
             </select>
 
             <select id="pokedex-filter-ribbon">
-                <option value="all">ribbon</option>
-                <option value=true>has ribbon</option>
+                <option value="all" data-i18n="filter.ribbon">ribbon</option>
+                <option value=true data-i18n="filter.hasRibbon">has ribbon</option>
             </select>
 
               <select id="pokedex-filter-tag">
-                <option value="all">tag</option>
-                <option value="none">none</option>
-                <option value="red">red</option>
-                <option value="orange">orange</option>
-                <option value="yellow">yellow</option>
-                <option value="green">green</option>
-                <option value="lime">lime</option>
-                <option value="blue">blue</option>
-                <option value="teal">teal</option>
-                <option value="pink">pink</option>
-                <option value="magenta">magenta</option>
-                <option value="hidden">hidden</option>
+                <option value="all" data-i18n="filter.tag">tag</option>
+                <option value="none" data-i18n="filter.noTag">none</option>
+                <option value="red" data-i18n="tag.red">red</option>
+                <option value="orange" data-i18n="tag.orange">orange</option>
+                <option value="yellow" data-i18n="tag.yellow">yellow</option>
+                <option value="green" data-i18n="tag.green">green</option>
+                <option value="lime" data-i18n="tag.lime">lime</option>
+                <option value="blue" data-i18n="tag.blue">blue</option>
+                <option value="teal" data-i18n="tag.teal">teal</option>
+                <option value="pink" data-i18n="tag.pink">pink</option>
+                <option value="magenta" data-i18n="tag.magenta">magenta</option>
+                <option value="hidden" data-i18n="tag.hidden">hidden</option>
             </select>
 
               <select id="pokedex-sort-filter">
-                <option value="default">sort</option>
-                <option value="level">level</option>
-                <option value="hpTotal">hp Total</option>
-                <option value="atkTotal">atk Total</option>
-                <option value="defTotal">def Total</option>
-                <option value="satkTotal">satk Total</option>
-                <option value="sdefTotal">sdef Total</option>
-                <option value="speTotal">spe Total</option>
-                <option value="hpBst">hp BST</option>
-                <option value="atkBst">atk BST</option>
-                <option value="defBst">def BST</option>
-                <option value="satkBst">satk BST</option>
-                <option value="sdefBst">sdef BST</option>
-                <option value="speBst">spe BST</option>
-                <option value="hpIv">hp IV's</option>
-                <option value="atkIv">atk IV's</option>
-                <option value="defIv">def IV's</option>
-                <option value="satkIv">satk IV's</option>
-                <option value="sdefIv">sdef IV's</option>
-                <option value="speIv">spe IV's</option>
+                <option value="default" data-i18n="sort.default">sort</option>
+                <option value="level" data-i18n="sort.level">level</option>
+                <option value="hpTotal" data-i18n="sort.hpTotal">hp Total</option>
+                <option value="atkTotal" data-i18n="sort.atkTotal">atk Total</option>
+                <option value="defTotal" data-i18n="sort.defTotal">def Total</option>
+                <option value="satkTotal" data-i18n="sort.satkTotal">satk Total</option>
+                <option value="sdefTotal" data-i18n="sort.sdefTotal">sdef Total</option>
+                <option value="speTotal" data-i18n="sort.speTotal">spe Total</option>
+                <option value="hpBst" data-i18n="sort.hpBst">hp BST</option>
+                <option value="atkBst" data-i18n="sort.atkBst">atk BST</option>
+                <option value="defBst" data-i18n="sort.defBst">def BST</option>
+                <option value="satkBst" data-i18n="sort.satkBst">satk BST</option>
+                <option value="sdefBst" data-i18n="sort.sdefBst">sdef BST</option>
+                <option value="speBst" data-i18n="sort.speBst">spe BST</option>
+                <option value="hpIv" data-i18n="sort.hpIv">hp IV's</option>
+                <option value="atkIv" data-i18n="sort.atkIv">atk IV's</option>
+                <option value="defIv" data-i18n="sort.defIv">def IV's</option>
+                <option value="satkIv" data-i18n="sort.satkIv">satk IV's</option>
+                <option value="sdefIv" data-i18n="sort.sdefIv">sdef IV's</option>
+                <option value="speIv" data-i18n="sort.speIv">spe IV's</option>
             </select>
-           
-            <div class="clear-filters" onClick="resetPokedexFilters(); updatePokedex()" style="background: rgb(155, 102, 77); cursor: pointer;">Clear Filters</div>
+
+            <div class="clear-filters" onClick="resetPokedexFilters(); updatePokedex()" style="background: rgb(155, 102, 77); cursor: pointer;" data-i18n="ui.clearFilters">Clear Filters</div>
 
             </div>
             </div>
@@ -448,35 +448,38 @@
         <div id="settings-menu-header">
 
             <span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.5 12a7.5 7.5 0 0 0 15 0m-15 0a7.5 7.5 0 1 1 15 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077l1.41-.513m14.095-5.13l1.41-.513M5.106 17.785l1.15-.964m11.49-9.642l1.149-.964M7.501 19.795l.75-1.3m7.5-12.99l.75-1.3m-6.063 16.658l.26-1.477m2.605-14.772l.26-1.477m0 17.726l-.26-1.477M10.698 4.614l-.26-1.477M16.5 19.794l-.75-1.299M7.5 4.205L12 12m6.894 5.785l-1.149-.964M6.256 7.178l-1.15-.964m15.352 8.864l-1.41-.513M4.954 9.435l-1.41-.514M12.002 12l-3.75 6.495"/></svg>
-                Settings </span>
-            
-            
+                <span data-i18n="ui.settings">Settings</span>
         </div>
 
         <div class="settings-list">
-            <div onclick="exportData()">Export Data</div>
-            <div onclick="importData()">Import Data</div>
-            <div onclick="textData()">Data to Text</div>
+            <div onclick="exportData()" data-i18n="ui.exportData">Export Data</div>
+            <div onclick="importData()" data-i18n="ui.importData">Import Data</div>
+            <div onclick="textData()" data-i18n="ui.dataToText">Data to Text</div>
 
-            <div>Theme: <select id="settings-theme">
-                <option value="default">default</option>
-                <option value="dark">dark</option>
-                <option value="verdant">verdant</option>
-                <option value="lilac">lilac</option>
-                <option value="cherry">cherry</option>
-                <option value="onyx">onyx</option>
-                <option value="coral">coral</option>
-                <option value="oled">oled</option>
+            <div data-i18n="theme.label">Theme:</div> <select id="settings-theme">
+                <option value="default" data-i18n="theme.default">default</option>
+                <option value="dark" data-i18n="theme.dark">dark</option>
+                <option value="verdant" data-i18n="theme.verdant">verdant</option>
+                <option value="lilac" data-i18n="theme.lilac">lilac</option>
+                <option value="cherry" data-i18n="theme.cherry">cherry</option>
+                <option value="onyx" data-i18n="theme.onyx">onyx</option>
+                <option value="coral" data-i18n="theme.coral">coral</option>
+                <option value="oled" data-i18n="theme.oled">oled</option>
+            </select>
+
+            <div data-i18n="language.label">Language:</div> <select id="settings-language">
+                <option value="en">English</option>
+                <option value="fr">Français</option>
+            </select>
+
+            <div data-help="settingsNewPkmn" style="cursor: help;"><span data-i18n="ui.hideNonNew">Hide non-new Pokemon got in summary</span>: <select id="settings-hide-got">
+                <option value="false" data-i18n="ui.disabled">disabled</option>
+                <option value="true" data-i18n="ui.enabled">enabled</option>
             </select></div>
 
-            <div data-help="settingsNewPkmn" style="cursor: help;">Hide non-new Pokemon got in summary: <select id="settings-hide-got">
-                <option value="false">disabled</option>
-                <option value="true">enabled</option>
-            </select></div>
-
-            <div data-help="settingsAlternateWild" style="cursor: help;">Sustract 1 to current Wild Area rotation: <select id="settings-alternate-rotation">
-                <option value="false">disabled</option>
-                <option value="true">enabled</option>
+            <div data-help="settingsAlternateWild" style="cursor: help;"><span data-i18n="ui.alternateRotation">Subtract 1 to current Wild Area rotation</span>: <select id="settings-alternate-rotation">
+                <option value="false" data-i18n="ui.disabled">disabled</option>
+                <option value="true" data-i18n="ui.enabled">enabled</option>
             </select></div>
 
             <!--<div>Tutorials: <select id="settings-tutorial">
@@ -1650,6 +1653,10 @@ Game Guide
     <script src="scripts/HackTimer.js"></script>
     <script src="scripts/fuse.js"></script>
 
+    <!-- i18n System -->
+    <script src="scripts/i18n/i18n.js"></script>
+    <script src="scripts/i18n/locales/en.js"></script>
+    <script src="scripts/i18n/locales/fr.js"></script>
 
     <script src="scripts/moveDictionary.js"></script>
     <script src="scripts/itemDictionary.js"></script>
