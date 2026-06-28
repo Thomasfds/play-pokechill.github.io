@@ -238,6 +238,9 @@
     // ----------------------------------------------------------
     const SKIP_TAGS = new Set(['script', 'style', 'textarea', 'noscript']);
 
+    // Collecteur pour le mode debug (textes non traduits rencontrés)
+    const _untranslated = new Set();
+
     function translateTextNode(node) {
         const raw = node.textContent;
         const trimmed = raw.trim();
@@ -249,6 +252,12 @@
             const trailing = raw.match(/[\s\n]*$/)[0];
             node.textContent = leading + FR[trimmed] + trailing;
             return;
+        }
+
+        // Mode debug : signaler les textes non traduits non triviaux
+        if (window.POKECHILL_FR_DEBUG && trimmed.length > 2 && /[a-zA-Z]/.test(trimmed)) {
+            _untranslated.add(trimmed);
+            if (node.parentElement) node.parentElement.classList.add('i18n-missing');
         }
 
         // Cas spécial : "Team N" (ex: options du select d'équipes)
@@ -321,8 +330,20 @@
     // ----------------------------------------------------------
     // POINT D'ENTRÉE
     // ----------------------------------------------------------
+    // Mode debug : injecter le style de surbrillance avant le walk
+    if (window.POKECHILL_FR_DEBUG) {
+        const s = document.createElement('style');
+        s.textContent = '.i18n-missing { outline: 2px dashed red !important; }';
+        document.head.appendChild(s);
+    }
+
     walkDOM(document.body);
     translateAttributes();
+
+    // Mode debug : rapport console après le walk initial
+    if (window.POKECHILL_FR_DEBUG && _untranslated.size) {
+        console.warn('[i18n] Textes non traduits (%d) :', _untranslated.size, [..._untranslated].sort());
+    }
 
     // Observe le DOM pour traduire les nœuds insérés dynamiquement
     // qui contiennent des textes couverts par la table FR.
